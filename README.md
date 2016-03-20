@@ -5,6 +5,12 @@
 A multi-word  anagram solver in Clojure, based on the article
 **"Anagrams and Pangrams"** from _The Armchair Universe_, by A.K. Dewdney.
 
+## Web Service
+
+TODO
+
+## API Usage
+
 ### Pre-requisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.6.1 or above installed.
@@ -16,6 +22,19 @@ To build and install the library locally, run:
     $ cd ars-magna
     $ lein test
 
+### Example usage
+
+```clojure
+(use 'ars-magna.dict)
+(use 'ars-magna.solver)
+
+(let [dict (load-word-list :en-GB)
+      index (partition-by-word-length dict)]
+  (sort
+    (search index "compute" 3 nil)))
+; ("come put" "compute" "cote ump" "cut mope" "cut poem"
+;  "cute mop" "met coup" "mote cup" "mute cop" "tome cup")
+```
 
 ## References
 
