@@ -1,15 +1,16 @@
 (ns ars-magna.dict
   (:require
+    [clojure.string :as s]
     [clojure.set :refer [difference]]
-    [clojure.string :refer [split-lines lower-case]]
     [ars-magna.letter-frequencies :refer [rarest-letter]]))
 
 (defn load-word-list [lang]
   (->>
     (str "data/" (name lang) "/words")
     slurp
-    split-lines
-    (map lower-case)))
+    s/split-lines
+    ;(map s/lower-case)
+    ))
 
 (defn partition-by-word-length [dict]
   (reduce
@@ -27,29 +28,29 @@
         (index n)
         (words-of-size index (dec n) min-size)))))
 
-(defn can-make? [set target]
+(defn can-make? [^String source target]
   (if (empty? target)
     true
-    (let [m (first target)]
-      (if (contains? set m)
+    (let [c (str (first target))]
+      (if (.contains source c)
         (can-make?
-          (difference set #{m})
+          (s/replace-first source c "")
           (rest target))
         false))))
 
 (defn find-in [index word min-size lang]
-  (let [rarest-letter (rarest-letter word lang)
-        all-letters (set word)
-        pred (fn [word]
+  (let [rarest-letter (str (rarest-letter word lang))
+        pred (fn [^String w]
                (and
-                 (contains? (set word) rarest-letter)
-                 (can-make? all-letters word)))]
+                 (.contains w rarest-letter)
+                 (can-make? word w)))]
     (->>
       (words-of-size index (count word) min-size)
       (filter pred))))
 
 (defn remaining-chars [word1 word2]
-  (difference
-    (set word1)
-    (set word2)))
-
+  (if (empty? word2)
+    word1
+    (recur
+      (s/replace-first word1 (first word2) "")
+      (rest word2))))
