@@ -9,3 +9,9 @@
     split-lines
     (map lower-case)))
 
+(defn partition-by-word-length [dict]
+  (reduce
+    (fn [acc word]
+      (update acc (count word) conj word))
+    (sorted-map)
+    dict))
