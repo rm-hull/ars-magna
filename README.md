@@ -19,7 +19,7 @@ To build and install the library locally, run:
 
 ## References
 
-TODO
+* https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language
 
 ## License
 
