@@ -5,24 +5,37 @@
 A multi-word  anagram solver in Clojure, based on the article
 **"Anagrams and Pangrams"** from _The Armchair Universe_, by A.K. Dewdney.
 
-## Web Service
-
-TODO
-
-## API Usage
-
-### Pre-requisites
+## Pre-requisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.6.1 or above installed.
 
-### Building
+## Building
 
-To build and install the library locally, run:
+To build and start the service locally, run:
 
     $ cd ars-magna
+    $ lein deps
     $ lein test
+    $ lein ring server-headless
 
-### Example usage
+To build and run a standalone jar:
+
+    $ lein ring uberjar
+    $ java -jar target/ars-magna-0.1.0-standalone.jar
+
+In both instances, the webapp starts on http://localhost:3000
+
+### Docker image
+
+A docker image is available as [richardhull/ars-magna](https://hub.docker.com/r/richardhull/ars-magna),
+and can be downloaded and started with:
+
+    $ docker pull richardhull/ars-magna
+    $ docker run --name ars-magna -d -p 3000:3000 richardhull/ars-magna
+
+## Example API usage
+
+From a Clojure REPL:
 
 ```clojure
 (use 'ars-magna.dict)
@@ -34,6 +47,27 @@ To build and install the library locally, run:
     (search index "compute" 3 nil)))
 ; ("come put" "compute" "cote ump" "cut mope" "cut poem"
 ;  "cute mop" "met coup" "mote cup" "mute cop" "tome cup")
+```
+
+or querying the web service for the word 'compute':
+
+    $ curl -s http://localhost:3000/search/compute | jq .
+
+returns the same anagrams:
+
+```json
+[
+  "come put",
+  "compute",
+  "cote ump",
+  "cut mope",
+  "cut poem",
+  "cute mop",
+  "met coup",
+  "mote cup",
+  "mute cop",
+  "tome cup"
+]
 ```
 
 ## References
