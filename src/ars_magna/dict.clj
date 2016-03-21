@@ -1,5 +1,6 @@
 (ns ars-magna.dict
   (:require
+    [clojure.java.io :as io]
     [clojure.string :as s]
     [clojure.set :refer [difference]]
     [ars-magna.letter-frequencies :refer [rarest-letter]]))
@@ -7,6 +8,7 @@
 (defn load-word-list [lang]
   (->>
     (str "data/" (name lang) "/words")
+    io/resource
     slurp
     s/split-lines
     ;(map s/lower-case)
