@@ -47,5 +47,3 @@
         (filter #(letters (first %)))
         by-ascending-frequency
         first))))
-
-(rarest-letter "compute")
