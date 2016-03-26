@@ -23,29 +23,34 @@
       (get-in req [:params :min])
       (str default))))
 
+(def make-indexes
+  (memoize
+    (fn [lang]
+      (let [dict (load-word-list :en-GB)]
+        {:dict dict
+         :index {
+           :word-length (partition-by-word-length dict)
+           :sorted-letter (partition-by-letters dict)}}))))
+
 (defroutes app-routes
-  (let [dict (load-word-list :en-GB)
-        word-length-index (partition-by-word-length dict)
-        sorted-letter-index (partition-by-letters dict)]
+  (GET "/multi-word/:word" [word :as req]
+    (json-exception-handler
+      (to-json identity
+        (sort
+          (multi-word
+            (get-in (make-indexes :en-GB) [:index :word-length])
+            (clean word)
+            (min-size req 3))))))
 
-    (GET "/multi-word/:word" [word :as req]
-      (json-exception-handler
-        (to-json identity
-          (sort
-            (multi-word
-              word-length-index
-              (clean word)
-              (min-size req 3))))))
-
-    (GET "/longest/:word" [word :as req]
-      (json-exception-handler
-        (to-json identity
-          (sort-by
-            (juxt (comp - count) identity)
-            (longest
-              sorted-letter-index
-              (clean word)
-              (min-size req 4))))))))
+  (GET "/longest/:word" [word :as req]
+    (json-exception-handler
+      (to-json identity
+        (sort-by
+          (juxt (comp - count) identity)
+          (longest
+            (get-in (make-indexes :en-GB) [:index :sorted-letter])
+            (clean word)
+            (min-size req 4)))))))
 
 (def app
     (->
