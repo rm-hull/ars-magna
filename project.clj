@@ -1,4 +1,4 @@
-(defproject rm-hull/ars-magna "0.1.0"
+(defproject rm-hull/ars-magna "0.2.0"
   :description "An anagram solver in Clojure"
   :url "https://github.com/rm-hull/ars-magna"
   :license {
