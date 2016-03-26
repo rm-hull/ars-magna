@@ -20,12 +20,12 @@
 (defroutes app-routes
   (let [dict (load-word-list :en-GB)
         index (partition-by-word-length dict)]
-    (GET "/search/:word" [word :as req]
+    (GET "/multi-word" [word :as req]
       (json-exception-handler
         (to-json identity
           (let [min-size (Integer/parseInt (or (get-in req [:params :min]) "3"))]
             (sort
-              (search index (clean word) min-size nil))))))))
+              (multi-word index (clean word) min-size nil))))))))
 
 (def app
     (->

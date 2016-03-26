@@ -35,7 +35,9 @@ and can be downloaded and started with:
 
 ## Example API usage
 
-From a Clojure REPL:
+### Multi-word anagrams
+
+Using all the letters to find multi-word anagrams, from a Clojure REPL:
 
 ```clojure
 (use 'ars-magna.dict)
@@ -44,14 +46,14 @@ From a Clojure REPL:
 (let [dict (load-word-list :en-GB)
       index (partition-by-word-length dict)]
   (sort
-    (search index "compute" 3 nil)))
+    (multi-word index "compute" 3 nil)))
 ; ("come put" "compute" "cote ump" "cut mope" "cut poem"
 ;  "cute mop" "met coup" "mote cup" "mute cop" "tome cup")
 ```
 
 or querying the web service for the word 'compute':
 
-    $ curl -s http://localhost:3000/search/compute | jq .
+    $ curl -s http://localhost:3000/multi-word/compute | jq .
 
 returns the same anagrams:
 

@@ -3,12 +3,12 @@
     [clojure.string :as s]
     [ars-magna.dict :refer :all]))
 
-(defn search [index word min-size prefix]
+(defn multi-word [index word min-size prefix]
   (if (empty? word)
     (s/trim prefix)
     (flatten
       (for [w (find-in index word min-size :en-GB)]
-        (search
+        (multi-word
           index
           (remaining-chars word w)
           min-size
