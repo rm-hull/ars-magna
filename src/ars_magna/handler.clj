@@ -17,15 +17,35 @@
     s/lower-case
     (s/replace #"\W" "")))
 
+(defn min-size [req default]
+  (Integer/parseInt
+    (or
+      (get-in req [:params :min])
+      (str default))))
+
 (defroutes app-routes
   (let [dict (load-word-list :en-GB)
-        index (partition-by-word-length dict)]
-    (GET "/multi-word" [word :as req]
+        word-length-index (partition-by-word-length dict)
+        sorted-letter-index (partition-by-letters dict)]
+
+    (GET "/multi-word/:word" [word :as req]
       (json-exception-handler
         (to-json identity
-          (let [min-size (Integer/parseInt (or (get-in req [:params :min]) "3"))]
-            (sort
-              (multi-word index (clean word) min-size nil))))))))
+          (sort
+            (multi-word
+              word-length-index
+              (clean word)
+              (min-size req 3))))))
+
+    (GET "/longest/:word" [word :as req]
+      (json-exception-handler
+        (to-json identity
+          (sort-by
+            (juxt (comp - count) identity)
+            (longest
+              sorted-letter-index
+              (clean word)
+              (min-size req 4))))))))
 
 (def app
     (->

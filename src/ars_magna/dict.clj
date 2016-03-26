@@ -14,12 +14,17 @@
     ;(map s/lower-case)
     ))
 
-(defn partition-by-word-length [dict]
+(defn- partition-words-by [aggregator]
+  (fn [dict]
   (reduce
     (fn [acc word]
-      (update acc (count word) conj word))
-    (sorted-map)
-    dict))
+      (update acc (aggregator word) conj word))
+    {}
+    dict)))
+
+(def partition-by-word-length (partition-words-by count))
+
+(def partition-by-letters (partition-words-by sort))
 
 (defn words-of-size
   ([index n] (words-of-size index n 0))

@@ -5,27 +5,35 @@
 
 (def test-dict
   ["hello" "hat" "gloves" "time" "normally"
-   "at" "banana" "leaf" "lead" "and" "you"])
+   "at" "banana" "leaf" "lead" "and" "you"
+   "melon" "lemon"
+   ])
 
 (deftest check-load-word-list
   (is (= 99171 (count (load-word-list :en-GB)))))
 
-(deftest check-partitioning
+(deftest check-word-length-partitioning
   (let [index (partition-by-word-length test-dict)]
     (is (nil? (index 0)))
     (is (nil? (index 1)))
     (is (= (index 2) ["at"]))
     (is (= (index 3) ["you" "and" "hat"]))
     (is (= (index 4) ["lead" "leaf" "time"]))
-    (is (= (index 5) ["hello"]))
+    (is (= (index 5) ["lemon" "melon" "hello"]))
     (is (= (index 6) ["banana" "gloves"]))
     (is (nil? (index 7)))
     (is (= (index 8) ["normally"]))))
 
+(deftest check-letter-partitioning
+  (let [index (partition-by-letters test-dict)]
+    (is (= (index (sort "lemon")) ["lemon" "melon"]))
+    (is (= (index (sort "hello")) ["hello"]))
+    (is (nil? (index (sort "person"))))))
+
 (deftest check-words-of-size
   (let [index (partition-by-word-length test-dict)]
-    (is (= ["normally" "banana" "gloves" "hello"] (words-of-size index 12 5)))
-    (is (= ["normally" "banana" "gloves" "hello" "lead"
+    (is (= ["normally" "banana" "gloves" "lemon" "melon" "hello"] (words-of-size index 12 5)))
+    (is (= ["normally" "banana" "gloves" "lemon" "melon" "hello" "lead"
             "leaf" "time" "you" "and" "hat" "at"] (words-of-size index 12)))
     (is (= ["lead" "leaf" "time" "you" "and" "hat" "at"] (words-of-size index 4)))
     (is (= ["you" "and" "hat"] (words-of-size index 3 3)))

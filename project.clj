@@ -13,7 +13,8 @@
     [ring "1.4.0"]
     [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.5"]
-    [metrics-clojure-ring "2.6.1"]]
+    [metrics-clojure-ring "2.6.1"]
+    [org.clojure/math.combinatorics "0.1.1"]]
   :scm {:url "git@github.com:rm-hull/ars-magna.git"}
   :ring {
     :handler ars-magna.handler/app }

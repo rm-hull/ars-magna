@@ -23,7 +23,8 @@ To build and run a standalone jar:
     $ lein ring uberjar
     $ java -jar target/ars-magna-0.1.0-standalone.jar
 
-In both instances, the webapp starts on http://localhost:3000
+In both instances, the webapp starts on http://localhost:3000. See the curl
+examples below for usage.
 
 ### Docker image
 
@@ -46,7 +47,7 @@ Using all the letters to find multi-word anagrams, from a Clojure REPL:
 (let [dict (load-word-list :en-GB)
       index (partition-by-word-length dict)]
   (sort
-    (multi-word index "compute" 3 nil)))
+    (multi-word index "compute" 3)))
 ; ("come put" "compute" "cote ump" "cut mope" "cut poem"
 ;  "cute mop" "met coup" "mote cup" "mute cop" "tome cup")
 ```
@@ -69,6 +70,56 @@ returns the same anagrams:
   "mote cup",
   "mute cop",
   "tome cup"
+]
+```
+
+### Longest word anagrams
+
+Find the longest single words from the given word, without necessarily using
+all the letters - at the REPL:
+
+```clojure
+(use 'ars-magna.dict)
+(use 'ars-magna.solver)
+
+(let [dict (load-word-list :en-GB)
+      index (partition-by-letters dict)]
+  (sort-by
+    (juxt (comp - count) identity)
+      (longest index "compute" 4)))
+; ("compute" "comet" "coupe" "tempo" "come"
+;  "cope" "cote" "coup" "cute" "mope" "mote"
+;  "mute" "poem" "poet" "pout" "temp" "tome")
+```
+
+_(the `(sort-by (juxt (comp - count) identity) ...)` returns the words
+sorted by longest first, then alphabetically)_
+
+or querying the web service for the word 'compute':
+
+    $ curl -s http://localhost:3000/longest/compute | jq .
+
+returns the same anagrams:
+
+```json
+[
+  "compute",
+  "comet",
+  "coupe",
+  "tempo",
+  "come",
+  "cope",
+  "cote",
+  "coup",
+  "cute",
+  "mope",
+  "mote",
+  "mute",
+  "poem",
+  "poet",
+  "pout",
+  "temp",
+  "tome"
 ]
 ```
 
