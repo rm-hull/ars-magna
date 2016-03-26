@@ -21,7 +21,7 @@ To build and start the service locally, run:
 To build and run a standalone jar:
 
     $ lein ring uberjar
-    $ java -jar target/ars-magna-0.1.0-standalone.jar
+    $ java -jar target/ars-magna-0.2.0-standalone.jar
 
 In both instances, the webapp starts on http://localhost:3000. See the curl
 examples below for usage.
