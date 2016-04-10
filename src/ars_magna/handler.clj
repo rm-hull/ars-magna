@@ -26,7 +26,7 @@
 (def make-indexes
   (memoize
     (fn [lang]
-      (let [dict (load-word-list :en-GB)]
+      (let [dict (load-word-list lang)]
         {:dict dict
          :index {
            :word-length (partition-by-word-length dict)
