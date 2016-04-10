@@ -22,10 +22,9 @@
     [lein-ring "0.9.7"]
     [codox "0.9.1"] ]
   :source-paths ["src"]
+  :resouce-paths ["resouces"]
   :jar-exclusions [#"(?:^|/).git"]
   :uberjar-exclusions [#"\.SF" #"\.RSA" #"\.DSA"]
-  :resouce-paths [
-    "resouces" ]
   :codox {
     :sources ["src"]
     :output-dir "doc/api"
