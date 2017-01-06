@@ -8,19 +8,16 @@
     [org.clojure/clojure "1.8.0"]
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
-    [com.taoensso/timbre "4.3.1"]
-    [compojure "1.5.0"]
-    [ring "1.4.0"]
+    [com.taoensso/timbre "4.8.0"]
+    [compojure "1.5.1"]
+    [ring "1.5.0"]
     [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.5"]
-    [metrics-clojure-ring "2.6.1"]
-    [org.clojure/math.combinatorics "0.1.1"]]
+    [metrics-clojure-ring "2.8.0"]
+    [org.clojure/math.combinatorics "0.1.3"]]
   :scm {:url "git@github.com:rm-hull/ars-magna.git"}
   :ring {
     :handler ars-magna.handler/app }
-  :plugins [
-    [lein-ring "0.9.7"]
-    [codox "0.9.1"] ]
   :source-paths ["src"]
   :resouce-paths ["resouces"]
   :jar-exclusions [#"(?:^|/).git"]
@@ -38,4 +35,6 @@
       :dependencies [
         [org.clojure/test.check "0.9.0"]]
       :plugins [
-        [lein-cloverage "1.0.6"]]}})
+        [codox "0.10.2"]
+        [lein-ring "0.10.0"]
+        [lein-cloverage "1.0.9"]]}})
