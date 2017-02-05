@@ -9,12 +9,12 @@
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
     [com.taoensso/timbre "4.8.0"]
-    [compojure "1.5.1"]
-    [ring "1.5.0"]
+    [compojure "1.5.2"]
+    [ring "1.5.1"]
     [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.5"]
     [metrics-clojure-ring "2.8.0"]
-    [org.clojure/math.combinatorics "0.1.3"]]
+    [org.clojure/math.combinatorics "0.1.4"]]
   :scm {:url "git@github.com:rm-hull/ars-magna.git"}
   :ring {
     :handler ars-magna.handler/app }
