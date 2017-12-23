@@ -1,7 +1,7 @@
 (ns ars-magna.letter-frequencies-test
   (:require
-    [clojure.test :refer :all]
-    [ars-magna.letter-frequencies :refer :all]))
+   [clojure.test :refer :all]
+   [ars-magna.letter-frequencies :refer :all]))
 
 (deftest check-letter-ordering
   (is (= "etaoinshrdlcumwfgypbvkjxqz" ;; From wikipedia

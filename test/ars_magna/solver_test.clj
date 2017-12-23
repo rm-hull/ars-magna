@@ -1,8 +1,8 @@
 (ns ars-magna.solver-test
   (:require
-    [clojure.test :refer :all]
-    [ars-magna.dict :refer :all]
-    [ars-magna.solver :refer :all]))
+   [clojure.test :refer :all]
+   [ars-magna.dict :refer :all]
+   [ars-magna.solver :refer :all]))
 
 (deftest check-multi-word-solver
   (let [dict (load-word-list :en-GB)

@@ -1,13 +1,12 @@
 (ns ars-magna.dict-test
   (:require
-    [clojure.test :refer :all]
-    [ars-magna.dict :refer :all]))
+   [clojure.test :refer :all]
+   [ars-magna.dict :refer :all]))
 
 (def test-dict
   ["hello" "hat" "gloves" "time" "normally"
    "at" "banana" "leaf" "lead" "and" "you"
-   "melon" "lemon"
-   ])
+   "melon" "lemon"])
 
 (deftest check-load-word-list
   (is (= 99171 (count (load-word-list :en-GB)))))
