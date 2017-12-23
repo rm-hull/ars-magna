@@ -11,7 +11,7 @@ A multi-word  anagram solver in Clojure, based on the article
 
 ## Pre-requisites
 
-You will need [Leiningen](https://github.com/technomancy/leiningen) 2.6.1 or above installed.
+You will need [Leiningen](https://github.com/technomancy/leiningen) 2.8.1 or above installed.
 
 ## Building
 
