@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/rm-hull/ars-magna/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/ars-magna?branch=master)
 [![Dependencies Status](https://jarkeeper.com/rm-hull/ars-magna/status.svg)](https://jarkeeper.com/rm-hull/ars-magna)
 [![Docker Pulls](https://img.shields.io/docker/pulls/richardhull/ars-magna.svg?maxAge=2592000)](https://hub.docker.com/r/richardhull/ars-magna/)
-[![Maintenance](https://img.shields.io/maintenance/yes/2017.svg?maxAge=2592000)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?maxAge=2592000)]()
 
 A multi-word  anagram solver in Clojure, based on the article
 **"Anagrams and Pangrams"** from _The Armchair Universe_, by A.K. Dewdney.
