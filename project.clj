@@ -36,6 +36,6 @@
         [org.clojure/test.check "0.9.0"]]
       :plugins [
         [codox "0.10.3"]
-        [lein-ring "0.12.2"]
+        [lein-ring "0.12.4"]
         [lein-cljfmt "0.5.7"]
         [lein-cloverage "1.0.10"]]}})

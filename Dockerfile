@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:latest
+FROM jfisbein/alpine-oracle-jdk9:latest
 MAINTAINER Richard Hull <rm_hull@yahoo.co.uk>
 
 ENV LEIN_ROOT 1
