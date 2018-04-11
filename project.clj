@@ -10,7 +10,6 @@
     [com.taoensso/timbre "4.10.0"]
     [compojure "1.6.0"]
     [ring "1.6.3"]
-    [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.6"]
     [metrics-clojure-ring "2.10.0"]
     [org.clojure/math.combinatorics "0.1.4"]]
