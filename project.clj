@@ -5,6 +5,7 @@
     :name "The MIT License (MIT)"
     :url "http://opensource.org/licenses/MIT"}
   :dependencies [
+    [org.clojure/clojure "1.9.0"]
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.4"]
     [com.taoensso/timbre "4.10.0"]
@@ -31,7 +32,6 @@
     :dev {
       :global-vars {*warn-on-reflection* true}
       :dependencies [
-        [org.clojure/clojure "1.9.0"]
         [org.clojure/test.check "0.9.0"]]
       :plugins [
         [codox "0.10.3"]
