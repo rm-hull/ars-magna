@@ -127,6 +127,43 @@ returns the same anagrams:
 ]
 ```
 
+### Wildcards
+
+Find the single words from the given wildcard (use `?` or `.` for a single
+character or `*` for a sequence) - at the REPL:
+
+```clojure
+(use 'ars-magna.dict)
+(use 'ars-magna.solver)
+
+(->
+  (load-word-list :en-GB)
+  (wildcard "c..p..e")
+  sort)
+; ("compare" "compete" "compile"
+;  "compose" "compote" "compute"
+;  "coppice" "cowpoke" "cripple"
+
+or querying the web service for the word 'compute':
+
+    $ curl -s http://localhost:3000/wildcard/c..p..e | jq .
+
+returns the same words:
+
+```json
+[
+  "compare",
+  "compete",
+  "compile",
+  "compose",
+  "compote",
+  "compute",
+  "coppice",
+  "cowpoke",
+  "cripple"
+]
+
+
 ## References
 
 * https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language

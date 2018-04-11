@@ -49,7 +49,15 @@
                (longest
                 (get-in (make-indexes :en-GB) [:index :sorted-letter])
                 (clean word)
-                (min-size req 4)))))))
+                (min-size req 4))))))
+
+  (GET "/wildcard/:word" [word :as req]
+    (json-exception-handler
+     (to-json identity
+              (sort
+               (wildcard
+                (get-in (make-indexes :en-GB) [:dict])
+                word))))))
 
 (def app
   (->

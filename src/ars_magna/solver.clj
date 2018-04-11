@@ -24,3 +24,18 @@
    (range min-size (inc (count word)))
    (mapcat #(map sort (c/combinations word %)))
    (mapcat index)))
+
+(defn- case-insensitive [re] (str "(?i)" re))
+
+(defn- assemble-regex [word]
+  (->
+   word
+   (s/replace "?" ".")
+   (s/replace "*" ".+")
+   case-insensitive
+   re-pattern))
+
+(defn wildcard [dict word]
+  (println word)
+  (println (assemble-regex word))
+  (filter (partial re-matches (assemble-regex word)) dict))
