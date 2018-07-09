@@ -162,6 +162,7 @@ returns the same words:
   "cowpoke",
   "cripple"
 ]
+```
 
 
 ## References
