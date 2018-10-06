@@ -10,7 +10,7 @@
     [org.clojure/data.csv "0.1.4"]
     [com.taoensso/timbre "4.10.0"]
     [compojure "1.6.1"]
-    [ring "1.6.3"]
+    [ring "1.7.0"]
     [ring-logger-timbre "0.7.6"]
     [metrics-clojure-ring "2.10.0"]
     [org.clojure/math.combinatorics "0.1.4"]]
@@ -34,7 +34,7 @@
       :dependencies [
         [org.clojure/test.check "0.9.0"]]
       :plugins [
-        [codox "0.10.4"]
+        [codox "0.10.5"]
         [lein-ring "0.12.4"]
-        [lein-cljfmt "0.5.7"]
-        [lein-cloverage "1.0.11"]]}})
+        [lein-cljfmt "0.6.1"]
+        [lein-cloverage "1.0.13"]]}})
