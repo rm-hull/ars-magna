@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rm-hull/ars-magna.svg?branch=master)](http://travis-ci.org/rm-hull/ars-magna)
 [![Coverage Status](https://coveralls.io/repos/rm-hull/ars-magna/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/ars-magna?branch=master)
-[![Dependencies Status](https://jarkeeper.com/rm-hull/ars-magna/status.svg)](https://jarkeeper.com/rm-hull/ars-magna)
+[![Dependencies Status](https://versions.deps.co/rm-hull/ars-magna/status.svg)](https://versions.deps.co/rm-hull/ars-magna)
 [![Docker Pulls](https://img.shields.io/docker/pulls/richardhull/ars-magna.svg?maxAge=2592000)](https://hub.docker.com/r/richardhull/ars-magna/)
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?maxAge=2592000)]()
 
