@@ -2,6 +2,7 @@
   (:require
    [clojure.string :as s]
    [clojure.math.combinatorics :as c]
+   [task-scheduler.core :refer :all]
    [ars-magna.dict :refer :all]))
 
 (defn multi-word
@@ -12,12 +13,14 @@
    (if (empty? word)
      (s/trim prefix)
      (flatten
-      (for [w (find-in index word min-size :en-GB)]
-        (multi-word
-         index
-         (remaining-chars word w)
-         min-size
-         (str w " " prefix)))))))
+          (map join
+           (for [w (find-in index word min-size :en-GB)]
+             (fork
+              (multi-word
+               index
+               (remaining-chars word w)
+               min-size
+               (str w " " prefix)))))))))
 
 (defn longest [index word min-size]
   (->>

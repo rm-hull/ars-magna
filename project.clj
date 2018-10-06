@@ -13,7 +13,8 @@
     [ring "1.7.0"]
     [ring-logger-timbre "0.7.6"]
     [metrics-clojure-ring "2.10.0"]
-    [org.clojure/math.combinatorics "0.1.4"]]
+    [org.clojure/math.combinatorics "0.1.4"]
+    [rm-hull/task-scheduler "0.2.1"]]
   :scm {:url "git@github.com:rm-hull/ars-magna.git"}
   :ring {
     :handler ars-magna.handler/app }
