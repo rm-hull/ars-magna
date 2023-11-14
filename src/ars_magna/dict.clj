@@ -12,7 +12,7 @@
    slurp
    s/split-lines
     ;(map s/lower-case)
-))
+   ))
 
 (defn- partition-words-by [aggregator]
   (fn [dict]
