@@ -1,4 +1,4 @@
-FROM jfisbein/alpine-oracle-jdk9:latest
+FROM eclipse-temurin:21-alpine
 MAINTAINER Richard Hull <rm_hull@yahoo.co.uk>
 
 ENV LEIN_ROOT 1
