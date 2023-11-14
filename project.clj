@@ -1,19 +1,19 @@
-(defproject rm-hull/ars-magna "0.2.0"
+(defproject rm-hull/ars-magna "0.2.1"
   :description "An anagram solver in Clojure"
   :url "https://github.com/rm-hull/ars-magna"
   :license {
     :name "The MIT License (MIT)"
     :url "http://opensource.org/licenses/MIT"}
   :dependencies [
-    [org.clojure/clojure "1.9.0"]
-    [org.clojure/data.json "0.2.6"]
-    [org.clojure/data.csv "0.1.4"]
-    [com.taoensso/timbre "4.10.0"]
-    [compojure "1.6.1"]
-    [ring "1.7.0"]
+    [org.clojure/clojure "1.11.1"]
+    [org.clojure/data.json "2.4.0"]
+    [org.clojure/data.csv "1.0.1"]
+    [com.taoensso/timbre "6.3.1"]
+    [compojure "1.7.0"]
+    [ring "1.10.0"]
     [ring-logger-timbre "0.7.6"]
     [metrics-clojure-ring "2.10.0"]
-    [org.clojure/math.combinatorics "0.1.4"]
+    [org.clojure/math.combinatorics "0.2.0"]
     [rm-hull/task-scheduler "0.2.1"]]
   :scm {:url "git@github.com:rm-hull/ars-magna.git"}
   :ring {
@@ -33,9 +33,9 @@
     :dev {
       :global-vars {*warn-on-reflection* true}
       :dependencies [
-        [org.clojure/test.check "0.9.0"]]
+        [org.clojure/test.check "1.1.1"]]
       :plugins [
-        [codox "0.10.5"]
-        [lein-ring "0.12.4"]
-        [lein-cljfmt "0.6.1"]
-        [lein-cloverage "1.0.13"]]}})
+        [codox "0.10.8"]
+        [lein-ring "0.12.6"]
+        [lein-cljfmt "0.9.2"]
+        [lein-cloverage "1.2.4"]]}})
