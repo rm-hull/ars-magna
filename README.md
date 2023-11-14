@@ -1,10 +1,8 @@
 # ![logo](https://raw.githubusercontent.com/rm-hull/ars-magna/master/logo.jpg) Ars Magna (Anagram Solver)
 
-[![Build Status](https://travis-ci.org/rm-hull/ars-magna.svg?branch=master)](http://travis-ci.org/rm-hull/ars-magna)
 [![Coverage Status](https://coveralls.io/repos/rm-hull/ars-magna/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/ars-magna?branch=master)
 [![Dependencies Status](https://versions.deps.co/rm-hull/ars-magna/status.svg)](https://versions.deps.co/rm-hull/ars-magna)
-[![Docker Pulls](https://img.shields.io/docker/pulls/richardhull/ars-magna.svg?maxAge=2592000)](https://hub.docker.com/r/richardhull/ars-magna/)
-[![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?maxAge=2592000)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2023.svg?maxAge=2592000)]()
 
 A multi-word anagram solver in Clojure, based on the article
 **"Anagrams and Pangrams"** from _The Armchair Universe_, by A.K. Dewdney.
@@ -25,7 +23,7 @@ To build and start the service locally, run:
 To build and run a standalone jar:
 
     $ lein ring uberjar
-    $ java -jar target/ars-magna-0.2.0-standalone.jar
+    $ java -jar target/ars-magna-0.2.1-standalone.jar
 
 In both instances, the webapp starts on http://localhost:3000. See the curl
 examples below for usage.
@@ -163,7 +161,7 @@ returns the same words:
   "cowpoke",
   "cripple"
 ]
-````
+```
 
 ## References
 
