@@ -6,7 +6,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/richardhull/ars-magna.svg?maxAge=2592000)](https://hub.docker.com/r/richardhull/ars-magna/)
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?maxAge=2592000)]()
 
-A multi-word  anagram solver in Clojure, based on the article
+A multi-word anagram solver in Clojure, based on the article
 **"Anagrams and Pangrams"** from _The Armchair Universe_, by A.K. Dewdney.
 
 ## Pre-requisites
@@ -32,11 +32,11 @@ examples below for usage.
 
 ### Docker image
 
-A docker image is available as [richardhull/ars-magna](https://hub.docker.com/r/richardhull/ars-magna),
+A docker image is available as [richardhull/ars-magna](https://github.com/rm-hull/ars-magna/pkgs/container/ars-magna),
 and can be downloaded and started with:
 
-    $ docker pull richardhull/ars-magna
-    $ docker run --name ars-magna -d -p 3000:3000 richardhull/ars-magna
+    $ docker pull ghcr.io/rm-hull/ars-magna:main
+    $ docker run --name ars-magna -d -p 3000:3000 ghcr.io/rm-hull/ars-magna:main
 
 ## Example API usage
 
@@ -143,6 +143,7 @@ character or `*` for a sequence) - at the REPL:
 ; ("compare" "compete" "compile"
 ;  "compose" "compote" "compute"
 ;  "coppice" "cowpoke" "cripple"
+```
 
 or querying the web service for the word 'compute':
 
@@ -162,12 +163,11 @@ returns the same words:
   "cowpoke",
   "cripple"
 ]
-```
-
+````
 
 ## References
 
-* https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language
+- https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language
 
 ## License
 
